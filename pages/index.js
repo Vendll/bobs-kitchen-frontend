@@ -2,7 +2,48 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+import { Fragment, useState } from 'react'
+import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
+import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon, XIcon } from '@heroicons/react/outline'
+
+const navigation = {
+  categories: [
+    {
+      id: 'products',
+      name: 'Termékek',
+      sections: [
+        [
+          {
+            id: 'shoes',
+            name: 'Shoes & Accessories',
+            items: [
+              { name: 'Virslik', href: '#' },
+              { name: 'Babok', href: '#' },
+              { name: 'Szószok', href: '#' },
+              { name: 'Tojások', href: '#' },
+              { name: 'Sonkák', href: '#' },
+              { name: 'Töltelékek', href: '#' },
+            ],
+          },
+        ],
+      ],
+    },
+  ],
+  pages: [
+    { name: 'Rólunk', href: '#' },
+    { name: 'Képek', href: '#' },
+    { name: 'Blog', href: '#' },
+    { name: 'Kapcsolat', href: '#' },
+  ],
+}
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+
 export default function Home() {
+  const [open, setOpen] = useState(false)
   return (
     <div className={styles.container}>
       <Head>
@@ -11,59 +52,403 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+    {/* MENU SECTION */}
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
+    <div className="bg-white">
+      {/* Mobile menu */}
+      <Transition.Root show={open} as={Fragment}>
+        <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+          <Transition.Child
+            as={Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="-translate-x-full"
+            enterTo="translate-x-0"
+            leave="transition ease-in-out duration-300 transform"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-x-full"
           >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+              <div className="px-4 pt-5 pb-2 flex">
+                <button
+                  type="button"
+                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="sr-only">Close menu</span>
+                  <XIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+
+              {/* Links */}
+              <Tab.Group as="div" className="mt-2">
+                <div className="border-b border-gray-200">
+                  <Tab.List className="-mb-px flex px-4 space-x-8">
+                    {navigation.categories.map((category) => (
+                      <Tab
+                        key={category.name}
+                        className={({ selected }) =>
+                          classNames(
+                            selected ? 'text-indigo-600 border-indigo-600' : 'text-gray-900 border-transparent',
+                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                          )
+                        }
+                      >
+                        {category.name}
+                      </Tab>
+                    ))}
+                  </Tab.List>
+                </div>
+                <Tab.Panels as={Fragment}>
+                  {navigation.categories.map((category) => (
+                    <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
+                      {category.sections.map((column, columnIdx) => (
+                        <div key={columnIdx} className="space-y-10">
+                          {column.map((section) => (
+                            <div key={section.name}>
+                              <p
+                                id={`${category.id}-${section.id}-heading-mobile`}
+                                className="font-medium text-gray-900"
+                              >
+                                {section.name}
+                              </p>
+                              <ul
+                                role="list"
+                                aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
+                                className="mt-6 flex flex-col space-y-6"
+                              >
+                                {section.items.map((item) => (
+                                  <li key={item.name} className="flow-root">
+                                    <a href={item.href} className="-m-2 p-2 block text-gray-500">
+                                      {item.name}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </Tab.Panel>
+                  ))}
+                </Tab.Panels>
+              </Tab.Group>
+
+              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                {navigation.pages.map((page) => (
+                  <div key={page.name} className="flow-root">
+                    <a href={page.href} className="-m-2 p-2 block font-medium text-gray-900">
+                      {page.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </Transition.Child>
+        </Dialog>
+      </Transition.Root>
+
+            {/* desktop menu */}
+      <header className="relative bg-white">
+        <nav aria-label="Top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border-b border-gray-200">
+            <div className="h-24 flex items-center justify-between">
+              <div className="flex-1 flex items-center lg:hidden">
+                <button
+                  type="button"
+                  className="-ml-2 bg-white p-2 rounded-md text-gray-400"
+                  onClick={() => setOpen(true)}
+                >
+                  <span className="sr-only">Open menu</span>
+                  <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+
+                <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                  <span className="sr-only">Search</span>
+                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                </a>
+              </div>
+
+              {/* Flyout menus */}
+              <Popover.Group className="hidden lg:flex-1 lg:block lg:self-stretch">
+                <div className="h-full flex space-x-8">
+                  {navigation.categories.map((category) => (
+                    <Popover key={category.name} className="flex">
+                      {({ open }) => (
+                        <>
+                          <div className="relative flex">
+                            <Popover.Button
+                              className={classNames(
+                                open ? 'text-indigo-600' : 'text-gray-700 hover:text-gray-800',
+                                'relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium'
+                              )}
+                            >
+                              {category.name}
+                              <span
+                                className={classNames(
+                                  open ? 'bg-indigo-600' : '',
+                                  'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
+                                )}
+                                aria-hidden="true"
+                              />
+                            </Popover.Button>
+                          </div>
+
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Popover.Panel className="absolute top-full inset-x-0">
+                              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+                              <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+
+                              <div className="relative bg-white">
+                                <div className="max-w-7xl mx-auto px-8">
+                                  <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
+                                    <div className="grid grid-cols-3 gap-y-10 gap-x-8 text-sm text-gray-500">
+                                      {category.sections.map((column, columnIdx) => (
+                                        <div key={columnIdx} className="space-y-10">
+                                          {column.map((section) => (
+                                            <div key={section.name}>
+                                              <p
+                                                id={`${category.id}-${section.id}-heading`}
+                                                className="font-medium text-gray-900"
+                                              >
+                                                {section.name}
+                                              </p>
+                                              <ul
+                                                role="list"
+                                                aria-labelledby={`${category.id}-${section.id}-heading`}
+                                                className="mt-4 space-y-4"
+                                              >
+                                                {section.items.map((item) => (
+                                                  <li key={item.name} className="flex">
+                                                    <a href={item.href} className="hover:text-gray-800">
+                                                      {item.name}
+                                                    </a>
+                                                  </li>
+                                                ))}
+                                              </ul>
+                                            </div>
+                                          ))}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
+                  ))}
+
+                  {navigation.pages.map((page) => (
+                    <a
+                      key={page.name}
+                      href={page.href}
+                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+                    >
+                      {page.name}
+                    </a>
+                  ))}
+                </div>
+              </Popover.Group>
+
+              {/* Logo */}
+              <a href="#" className="flex">
+                <span className="sr-only">Workflow</span>
+                <img
+                  className="h-16 w-auto"
+                  src="/BK.svg"
+                  alt=""
+                />
+              </a>
+
+              <div className="flex-1 flex items-center justify-end">
+
+                {/* Search */}
+                <a href="#" className="hidden ml-6 p-2 text-gray-400 hover:text-gray-500 lg:block">
+                  <span className="sr-only">Search</span>
+                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                </a>
+
+                {/* Account */}
+                <a href="#" className="p-2 text-gray-400 hover:text-gray-500 lg:ml-4">
+                  <span className="sr-only">Account</span>
+                  <UserIcon className="w-6 h-6" aria-hidden="true" />
+                </a>
+
+                {/* Cart */}
+                <div className="ml-4 flow-root lg:ml-6">
+                  <a href="#" className="group -m-2 p-2 flex items-center">
+                    <ShoppingBagIcon
+                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="sr-only">items in cart, view bag</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+
+
+
+        {/* HERO SECTION */}
+
+        <div className="relative bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <svg
+            className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+            fill="currentColor"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <polygon points="50,0 100,0 50,100 0,100" />
+          </svg>
+
+          <Popover>
+            <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
+              <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+                <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                  <div className="flex items-center justify-between w-full md:w-auto">
+                    <a href="#">
+                      <span className="sr-only">Workflow</span>
+                      <img
+                        className="h-8 w-auto sm:h-10"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      />
+                    </a>
+                    <div className="-mr-2 flex items-center md:hidden">
+                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span className="sr-only">Open main menu</span>
+                        <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                      </Popover.Button>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+                  <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                    Log in
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <Transition
+              as={Fragment}
+              enter="duration-150 ease-out"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="duration-100 ease-in"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Popover.Panel
+                focus
+                className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              >
+                <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+                  <div className="px-5 pt-4 flex items-center justify-between">
+                    <div>
+                      <img
+                        className="h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div className="-mr-2">
+                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span className="sr-only">Close main menu</span>
+                        <XIcon className="h-6 w-6" aria-hidden="true" />
+                      </Popover.Button>
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
+                  >
+                    Log in
+                  </a>
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </Popover>
+
+          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div className="sm:text-center lg:text-left">
+              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">Data to enrich your</span>{' '}
+                <span className="block text-indigo-600 xl:inline">online business</span>
+              </h1>
+              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
+                fugiat veniam occaecat fugiat aliqua.
+              </p>
+              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="rounded-md shadow">
+                  <a
+                    href="#"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                  >
+                    Get started
+                  </a>
+                </div>
+                <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <a
+                    href="#"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                  >
+                    Live demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-      </main>
+      </div>
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+          alt=""
+        />
+      </div>
+    </div>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+
+
+
+
+
+
     </div>
   )
 }
