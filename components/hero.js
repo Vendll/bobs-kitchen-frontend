@@ -1,4 +1,5 @@
 import Image from "next/image"
+import heroPic from "/image1/image00005.jpeg"
 export default function Hero() {
     return (
         <div className="relative bg-white overflow-hidden">
@@ -48,10 +49,10 @@ export default function Hero() {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <img
+          <Image
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src="/image1/image00005.jpeg"
-            alt=""
+            src={heroPic}
+            alt="English Breakfast"
           />
         </div>
       </div> 

@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import logoPic from "/BK.svg"
+import aboutPic from "/image1/image00003.jpeg"
 
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
@@ -382,9 +384,9 @@ export default function Home() {
               {/* Logo */}
               <a href="#" className="flex">
                 <span className="sr-only">Workflow</span>
-                <img
+                <Image
                   className="h-16 w-auto"
-                  src="/BK.svg"
+                  src={logoPic}
                   alt=""
                 />
               </a>
@@ -435,9 +437,9 @@ export default function Home() {
     <div className="relative bg-white mt-24">
       <div className="lg:absolute lg:inset-0">
         <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
-          <img
+          <Image
             className="h-5 w-full object-cover lg:absolute lg:h-full"
-            src="/image1/image00003.jpeg"
+            src={aboutPic}
             alt=""
           />
         </div>
@@ -518,7 +520,7 @@ export default function Home() {
                 )}
               >
                 <div className="aspect-video rounded-lg bg-gray-100 overflow-hidden">
-                  <img src={feature.imageSrc} alt={feature.imageAlt} className="object-center object-cover" />
+                  <Image src={feature.imageSrc} alt={feature.imageAlt} className="object-center object-cover" />
                 </div>
               </div>
             </div>
