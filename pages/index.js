@@ -160,7 +160,7 @@ export default function Home() {
     {/* MENU SECTION */}
 
 
-    <div className="bg-white">
+    <div className="bg-white fixed top-0 z-30 w-full">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setOpen}>
@@ -425,125 +425,14 @@ export default function Home() {
 
         {/* HERO SECTION */}
 
-    {/*     <div className="relative bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 py-8 bg-white sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32">
-          <svg
-            className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
-
-
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline text-bobgray">Data to enrich your</span>{' '}
-                <span className="block text-bobred xl:inline">online business</span>
-              </h1>
-              <p className="mt-3 text-base text-bobgray sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-                fugiat veniam occaecat fugiat aliqua.
-              </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <a
-                    href="#"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bobred hover:bg-bobblue md:py-4 md:text-lg md:px-10"
-                  >
-                    Get started
-                  </a>
-                </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bobblue hover:bg-bobred md:py-4 md:text-lg md:px-10"
-                  >
-                    Live demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="/image1/image00005.jpeg"
-          alt=""
-        />
-      </div>
-    </div> */}
 
 
 
-    <div className="bg-white">
 
       <main>
-        <div>
-          {/* Hero card */}
-          <div className="relative">
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
-            <div className="  px-0">
-              <div className="relative shadow-xl ">
-                <div className="absolute inset-0">
-                  <img
-                    className="h-full w-full object-cover"
-                    src="/image2/image00005.jpeg"
-                    alt="People working on laptops"
-                  />
-                </div>
-                <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-                    <div className="bg-gray-50/50 max-w-3xl mx-auto py-8">
-                    <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                      <span className="block text-bobblue">Take control of your</span>
-                      <span className="block text-bobred">customer support</span>
-                    </h1>
-                    <p className="mt-6 max-w-lg mx-auto text-center text-xl text-bobgray sm:max-w-3xl">
-                      Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
-                      amet fugiat veniam occaecat fugiat aliqua.
-                    </p>
-                    <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                      <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                        <a
-                          href="#"
-                          className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium shadow-sm text-bobred bg-white hover:bg-indigo-50 sm:px-8"
-                        >
-                          Get started
-                        </a>
-                        <a
-                          href="#"
-                          className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium shadow-sm text-white bg-bobblue  hover:bg-opacity-90 sm:px-8"
-                        >
-                          Live demo
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="relative py-24">
-          <div className="absolute inset-0 flex items-center px-24" aria-hidden="true">
-            <div className="w-full border-t border-bobred" />
-          </div>
-          {/* <div className="relative flex justify-center">
-            <span className="px-3 bg-white text-lg font-medium text-gray-900">Rólunk</span>
-          </div> */}
-        </div>
-
 
     {/* SHORT ABOUT */}
-    <div className="relative bg-white">
+    <div className="relative bg-white mt-24">
       <div className="lg:absolute lg:inset-0">
         <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
           <img
@@ -573,7 +462,7 @@ export default function Home() {
                 Bibendum eu nulla feugiat justo, elit adipiscing. Ut tristique sit nisi lorem pulvinar. Urna, laoreet
                 fusce nibh leo. Dictum et et et sit. Faucibus sed non gravida lectus dignissim imperdiet a.
               </p>
-              <h3>How we're different</h3>
+              <h3>Miért vagyunk mások?</h3>
               <p>
                 Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in volutpat, diam.
                 Montes, magna cursus nulla feugiat dignissim id lobortis amet. Laoreet sem est phasellus eu proin massa,
@@ -642,7 +531,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-white">
-      <div className="max-w-7xl mx-auto py-12 mt-20 px-4 border-t border-bobred overflow-hidden sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-12 mt-20 px-4 overflow-hidden sm:px-6 lg:px-8">
         <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
           {footnavigation.main.map((item) => (
             <div key={item.name} className="px-5 py-2">
@@ -675,8 +564,5 @@ export default function Home() {
     </div>
 
 
-
-
-    </div>
   )
 }
