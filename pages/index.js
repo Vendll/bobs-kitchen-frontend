@@ -430,9 +430,7 @@ export default function Home() {
 
 
         {/* HERO SECTION */}
-
-
-                    <Hero/>
+        <Hero/>
 
 
       <main>
