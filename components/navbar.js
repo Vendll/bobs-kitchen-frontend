@@ -1,28 +1,29 @@
-import Image from 'next/image'
-import { Fragment, useState } from 'react'
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon, XIcon } from '@heroicons/react/outline'
-import logoPic from '../public/BK.svg'
+import Image from "next/image"
+import Link from "next/link"
+import { Fragment, useState } from "react"
+import { Dialog, Popover, Tab, Transition } from "@headlessui/react"
+import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon, XIcon } from "@heroicons/react/outline"
+import logoPic from "../public/BK.svg"
 
 
 const navigation = {
   categories: [
     {
-      id: 'products',
-      name: 'Termékek',
+      id: "products",
+      name: "Termékek",
       sections: [
         [
           {
-            id: 'shoes',
-            name: 'Shoes & Accessories',
+            id: "shoes",
+            name: "Shoes & Accessories",
             items: [
               {  },
-              { name: 'Virslik', href: '#' },
-              { name: 'Babok', href: '#' },
-              { name: 'Szószok', href: '#' },
-              { name: 'Tojások', href: '#' },
-              { name: 'Sonkák', href: '#' },
-              { name: 'Töltelékek', href: '#' },
+              { name: "Virslik", href: "#" },
+              { name: "Babok", href: "#" },
+              { name: "Szószok", href: "#" },
+              { name: "Tojások", href: "#" },
+              { name: "Sonkák", href: "#" },
+              { name: "Töltelékek", href: "#" },
             ],
           },
         ],
@@ -30,15 +31,15 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Rólunk', href: '/products' },
-    { name: 'Képek', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Kapcsolat', href: '#' },
+    { name: "Rólunk", href: "/products" },
+    { name: "Képek", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Kapcsolat", href: "#" },
   ],
 }
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ")
 }
 
 
@@ -91,8 +92,8 @@ export default function Navbar() {
                         key={category.name}
                         className={({ selected }) =>
                           classNames(
-                            selected ? 'text-indigo-600 border-indigo-600' : 'text-gray-900 border-transparent',
-                            'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
+                            selected ? "text-indigo-600 border-indigo-600" : "text-gray-900 border-transparent",
+                            "flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
                           )
                         }
                       >
@@ -182,15 +183,15 @@ export default function Navbar() {
                           <div className="relative flex">
                             <Popover.Button
                               className={classNames(
-                                open ? 'text-bobred' : 'text-bobgray hover:text-bobblue',
-                                'relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium hover:border-b-2 hover:border-bobred'
+                                open ? "text-bobred" : "text-bobgray hover:text-bobblue",
+                                "relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium hover:border-b-2 hover:border-bobred"
                               )}
                             >
                               {category.name}
                               <span
                                 className={classNames(
-                                  open ? 'bg-indigo-600' : '',
-                                  'absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px'
+                                  open ? "bg-indigo-600" : "",
+                                  "absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px"
                                 )}
                                 aria-hidden="true"
                               />
@@ -265,7 +266,8 @@ export default function Navbar() {
               </Popover.Group>
 
               {/* Logo */}
-              <a href="/" className="flex">
+              <Link href="/">
+                <a className="flex">
                 <span className="sr-only">Workflow</span>
                 <Image
                   className="h-16 w-auto"
@@ -275,7 +277,8 @@ export default function Navbar() {
                   width={50}
                   alt=""
                 />
-              </a>
+                </a>
+              </Link>
 
               <div className="flex-1 flex items-center justify-end">
 
