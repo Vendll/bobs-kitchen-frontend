@@ -2,7 +2,7 @@ import Image from "next/image"
 import heroPic from "../public/image1/image00005.jpeg"
 export default function Hero() {
     return (
-        <div className="relative bg-white overflow-hidden">
+        <div className="relative bg-white overflow-hidden pt-20">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 py-8 bg-white sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32">
             <svg
@@ -52,6 +52,10 @@ export default function Hero() {
           <Image
             className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
             src={heroPic}
+            layout="fill"
+            width="100%"
+            height="100%"
+            objectFit='cover'
             alt="English Breakfast"
           />
         </div>
