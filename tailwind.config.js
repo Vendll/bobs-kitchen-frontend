@@ -4,7 +4,19 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        bobred:{
+          DEFAULT:"#C51D23",
+        },
+        bobblue:{
+          DEFAULT:"#1B306C",
+        },
+        bobgray:{
+          DEFAULT:"#231F20",
+        },
+      },
+    },
   },
   plugins: [],
 };
