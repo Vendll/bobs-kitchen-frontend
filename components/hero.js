@@ -1,5 +1,5 @@
 import Image from "next/image"
-import heroPic from "/image1/image00005.jpeg"
+import heroPic from "../public/image1/image00005.jpeg"
 export default function Hero() {
     return (
         <div className="relative bg-white overflow-hidden">

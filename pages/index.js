@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import logoPic from "/BK.svg"
-import aboutPic from "/image1/image00003.jpeg"
+import Hero from '../components/hero'
+import logoPic from '../public/BK.svg'
+import aboutPic from '../public/image1/image00003.jpeg'
 
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
@@ -387,6 +388,9 @@ export default function Home() {
                 <Image
                   className="h-16 w-auto"
                   src={logoPic}
+                  layout="fixed"
+                  height={100}
+                  width={50}
                   alt=""
                 />
               </a>
@@ -428,7 +432,7 @@ export default function Home() {
         {/* HERO SECTION */}
 
 
-
+                    <Hero/>
 
 
       <main>
@@ -440,6 +444,10 @@ export default function Home() {
           <Image
             className="h-5 w-full object-cover lg:absolute lg:h-full"
             src={aboutPic}
+            layout="responsive"
+                    width="100%"
+                    height="90%"
+                    objectFit='cover'
             alt=""
           />
         </div>
@@ -519,8 +527,15 @@ export default function Home() {
                   'flex-auto lg:row-start-1 lg:col-span-7 xl:col-span-8'
                 )}
               >
-                <div className="aspect-video rounded-lg bg-gray-100 overflow-hidden">
-                  <Image src={feature.imageSrc} alt={feature.imageAlt} className="object-center object-cover" />
+                <div className=" rounded-lg bg-gray-100 overflow-hidden">
+                  <Image 
+                    src={feature.imageSrc}
+                    alt={feature.imageAlt}
+                    layout="responsive"
+                    width="100%"
+                    height="60%"
+                    objectFit='cover'
+                    className="h-5 w-full object-contain lg:absolute lg:h-full" />
                 </div>
               </div>
             </div>
