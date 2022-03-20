@@ -45,13 +45,13 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const data = await getAllData();
-  const slugs = data.data.map((product) => product.attributes.slug);
+  const daaata = await getAllData();
+  const slugs = daaata.data.map((product) => product.attributes.slug);
   const pathWithParams = slugs.map((slug) => ({ params: { slug: slug } }));
 
   return {
     paths: pathWithParams,
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -62,10 +62,10 @@ function classNames(...classes) {
 export default function ProductDetail(props) {
   const { product } = props;
   const [selectedPrice, setSelectedPrice] = useState([]);
-  /* const [selectedSize, setSelectedSize] = useState(
-    product.data.attributes.Options
-  ); */
-  console.log(product);
+  const [selectedSize, setSelectedSize] = useState(
+    product.data.attributes.Options[0].value
+  );
+
   return (
     <Layout>
       <div className="bg-white mt-16">
@@ -139,10 +139,8 @@ export default function ProductDetail(props) {
               <div className="mt-6">
                 <h3 className="sr-only">Description</h3>
 
-                <div
-                  className="text-base text-gray-700 space-y-6"
-                  dangerouslySetInnerHTML={{ __html: product.description }}
-                />
+                <div className="text-base text-gray-700 space-y-6" />
+                {product.data.attributes.Description}
               </div>
 
               <form className="mt-6">
@@ -158,7 +156,11 @@ export default function ProductDetail(props) {
                     </a>
                   </div>
 
-                  <RadioGroup className="mt-2">
+                  <RadioGroup
+                    value={selectedSize}
+                    onChange={setSelectedSize}
+                    className="mt-2"
+                  >
                     <RadioGroup.Label className="sr-only">
                       Choose a size
                     </RadioGroup.Label>
