@@ -62,11 +62,15 @@ function classNames(...classes) {
 
 export default function ProductDetail(props) {
   const { product } = props;
-  const [selectedPrice, setSelectedPrice] = useState([]);
   const [selectedSize, setSelectedSize] = useState(
-    product.data.attributes.Options[0].value
+    product.data.attributes.Options[0]
   );
 
+  console.log(product);
+
+  if (!product) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <Layout>
       <div className="bg-white mt-16">
@@ -132,9 +136,7 @@ export default function ProductDetail(props) {
 
               <div className="mt-3">
                 <h2 className="sr-only">Product information</h2>
-                <p className="text-3xl text-gray-900">
-                  {product.data.attributes.price}
-                </p>
+                <p className="text-3xl text-gray-900">{selectedSize.price}</p>
               </div>
 
               <div className="mt-6">
@@ -149,12 +151,6 @@ export default function ProductDetail(props) {
                 <div className="mt-8">
                   <div className="flex items-center justify-between">
                     <h2 className="text-sm font-medium text-gray-900">Size</h2>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-bobred hover:text-bobblue"
-                    >
-                      See sizing chart
-                    </a>
                   </div>
 
                   <RadioGroup
@@ -169,7 +165,7 @@ export default function ProductDetail(props) {
                       {product.data.attributes.Options.map((size) => (
                         <RadioGroup.Option
                           key={size.id}
-                          value={size.name}
+                          value={size}
                           className={({ active, checked }) =>
                             classNames(
                               size.inStock
@@ -177,15 +173,15 @@ export default function ProductDetail(props) {
                                 : "opacity-25 cursor-not-allowed",
                               active ? "ring-2 ring-offset-2 ring-bobred" : "",
                               checked
-                                ? "bg-bobred border-transparent text-white hover:bg-bobblue"
-                                : "bg-white border-gray-200 text-gray-900 hover:bg-gray-50",
+                                ? "bg-bobred border-transparent text-white "
+                                : "bg-white border-gray-200 text-gray-900 hover:bg-bobblue hover:text-white",
                               "border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1"
                             )
                           }
                           disabled={!size.inStock}
                         >
                           <RadioGroup.Label as="p">
-                            {size.value}
+                            {size.value} {size.unitOfMeasure}
                           </RadioGroup.Label>
                         </RadioGroup.Option>
                       ))}

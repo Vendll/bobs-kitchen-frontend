@@ -1,16 +1,13 @@
-import Head from 'next/head'
-import Divider from '../components/divider'
-import Hero from '../components/hero'
-import ShortAbout from '../components/shortAbout'
-import HighlightedFood from '../components/highlightedFoods'
-import Layout from '../components/layout'
+import Head from "next/head";
+import Divider from "../components/divider";
+import Hero from "../components/hero";
+import ShortAbout from "../components/shortAbout";
+import HighlightedFood from "../components/highlightedFoods";
+import Layout from "../components/layout";
 
-
-import { useState } from 'react'
-
+import { useState } from "react";
 
 export default function Home() {
-  const [open, setOpen] = useState(false)
   return (
     <Layout>
       <Head>
@@ -19,18 +16,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero/>
+      <Hero />
 
-      <ShortAbout/>
+      <ShortAbout />
 
       {/* DIVIDER */}
-      <Divider/>
+      <Divider />
 
       {/* HIGHLIGHTED FOODS */}
-      <HighlightedFood/>
-
+      <HighlightedFood />
     </Layout>
-
-
-  )
+  );
 }

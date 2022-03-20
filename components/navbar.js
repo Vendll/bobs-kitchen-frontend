@@ -12,6 +12,51 @@ import {
 } from "@heroicons/react/outline";
 import logoPic from "../public/BK.svg";
 
+async function getData(pageSlug) {
+  const apiURL =
+    "https://bobskitchenbackend-ojs88.ondigitalocean.app/api/slugify/slugs/product/";
+  const { data } = await axios.get(apiURL + pageSlug, {
+    params: {
+      populate: "*",
+    },
+  });
+
+  return data;
+}
+
+async function getAllData() {
+  const apiURL =
+    "https://bobskitchenbackend-ojs88.ondigitalocean.app/api/products/";
+  const res = await fetch(apiURL);
+  const data = await res.json();
+
+  return data;
+}
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const pageSlug = params.slug;
+  const data = await getData(pageSlug);
+
+  return {
+    props: {
+      product: data,
+    },
+    revalidate: 10,
+  };
+}
+
+export async function getStaticPaths() {
+  const daaata = await getAllData();
+  const slugs = daaata.data.map((product) => product.attributes.slug);
+  const pathWithParams = slugs.map((slug) => ({ params: { slug: slug } }));
+
+  return {
+    paths: pathWithParams,
+    fallback: false,
+  };
+}
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
