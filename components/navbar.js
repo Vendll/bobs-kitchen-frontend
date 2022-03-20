@@ -1,55 +1,32 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Fragment, useState } from "react"
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react"
-import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon, XIcon } from "@heroicons/react/outline"
-import logoPic from "../public/BK.svg"
-
-
-const navigation = {
-  categories: [
-    {
-      id: "products",
-      name: "Termékek",
-      sections: [
-        [
-          {
-            id: "shoes",
-            name: "Shoes & Accessories",
-            items: [
-              {  },
-              { name: "Virslik", href: "#" },
-              { name: "Babok", href: "#" },
-              { name: "Szószok", href: "#" },
-              { name: "Tojások", href: "#" },
-              { name: "Sonkák", href: "#" },
-              { name: "Töltelékek", href: "#" },
-            ],
-          },
-        ],
-      ],
-    },
-  ],
-  pages: [
-    { name: "Rólunk", href: "/products" },
-    { name: "Képek", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Kapcsolat", href: "#" },
-  ],
-}
+import Image from "next/image";
+import products from "../pages/api/products/products.json";
+import Link from "next/link";
+import { Fragment, useState } from "react";
+import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import {
+  MenuIcon,
+  SearchIcon,
+  ShoppingBagIcon,
+  UserIcon,
+  XIcon,
+} from "@heroicons/react/outline";
+import logoPic from "../public/BK.svg";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
-
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-    return (
-      <div className="bg-white fixed top-0 z-30 w-full">
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="bg-white fixed top-0 z-30 w-full">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 flex z-40 lg:hidden" onClose={setOpen}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 flex z-40 lg:hidden"
+          onClose={setOpen}
+        >
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -87,12 +64,14 @@ export default function Navbar() {
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
                   <Tab.List className="-mb-px flex px-4 space-x-8">
-                    {navigation.categories.map((category) => (
+                    {products.categories.map((category) => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
                           classNames(
-                            selected ? "text-indigo-600 border-indigo-600" : "text-gray-900 border-transparent",
+                            selected
+                              ? "text-bobred border-bobred"
+                              : "text-bobgray border-transparent",
                             "flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
                           )
                         }
@@ -103,33 +82,21 @@ export default function Navbar() {
                   </Tab.List>
                 </div>
                 <Tab.Panels as={Fragment}>
-                  {navigation.categories.map((category) => (
-                    <Tab.Panel key={category.name} className="pt-10 pb-8 px-4 space-y-10">
-                      {category.sections.map((column, columnIdx) => (
-                        <div key={columnIdx} className="space-y-10">
-                          {column.map((section) => (
-                            <div key={section.name}>
-                              <p
-                                id={`${category.id}-${section.id}-heading-mobile`}
-                                className="font-medium text-gray-900"
-                              >
-                                {section.name}
-                              </p>
-                              <ul
-                                role="list"
-                                aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                                className="mt-6 flex flex-col space-y-6"
-                              >
-                                {section.items.map((item) => (
-                                  <li key={item.name} className="flow-root">
-                                    <a href={item.href} className="-m-2 p-2 block text-gray-500">
-                                      {item.name}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
+                  {products.categories.map((category) => (
+                    <Tab.Panel
+                      key={category.name}
+                      className="pt-10 pb-8 px-4 space-y-10"
+                    >
+                      {category.items.map((item) => (
+                        <div key={item.name} className="space-y-10">
+                          <li key={item.name} className="flow-root">
+                            <Link
+                              href={item.href}
+                              className="-m-2 p-2 block text-gray-500"
+                            >
+                              {item.name}
+                            </Link>
+                          </li>
                         </div>
                       ))}
                     </Tab.Panel>
@@ -138,23 +105,28 @@ export default function Navbar() {
               </Tab.Group>
 
               <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-                {navigation.pages.map((page) => (
+                {products.pages.map((page) => (
                   <div key={page.name} className="flow-root">
-                    <a href={page.href} className="-m-2 p-2 block font-medium text-gray-900">
+                    <a
+                      href={page.href}
+                      className="-m-2 p-2 block font-medium text-gray-900"
+                    >
                       {page.name}
                     </a>
                   </div>
                 ))}
               </div>
-
             </div>
           </Transition.Child>
         </Dialog>
       </Transition.Root>
 
-            {/* desktop menu */}
+      {/* desktop menu */}
       <header className="relative bg-white">
-        <nav aria-label="Top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav
+          aria-label="Top"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="border-b border-gray-200">
             <div className="h-24 flex items-center justify-between">
               <div className="flex-1 flex items-center lg:hidden">
@@ -167,7 +139,10 @@ export default function Navbar() {
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <a href="#" className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                <a
+                  href="#"
+                  className="ml-2 p-2 text-gray-400 hover:text-gray-500"
+                >
                   <span className="sr-only">Search</span>
                   <SearchIcon className="w-6 h-6" aria-hidden="true" />
                 </a>
@@ -176,21 +151,23 @@ export default function Navbar() {
               {/* Flyout menus */}
               <Popover.Group className="hidden lg:flex-1 lg:block lg:self-stretch">
                 <div className="h-full flex space-x-8">
-                  {navigation.categories.map((category) => (
+                  {products.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       {({ open }) => (
                         <>
                           <div className="relative flex">
                             <Popover.Button
                               className={classNames(
-                                open ? "text-bobred" : "text-bobgray hover:text-bobblue",
+                                open
+                                  ? "text-bobred"
+                                  : "text-bobgray hover:text-bobblue",
                                 "relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium hover:border-b-2 hover:border-bobred"
                               )}
                             >
                               {category.name}
                               <span
                                 className={classNames(
-                                  open ? "bg-indigo-600" : "",
+                                  open ? "bg-bobred" : "",
                                   "absolute bottom-0 inset-x-0 h-0.5 transition-colors ease-out duration-200 sm:mt-5 sm:transform sm:translate-y-px"
                                 )}
                                 aria-hidden="true"
@@ -209,40 +186,24 @@ export default function Navbar() {
                           >
                             <Popover.Panel className="absolute top-full z-20 inset-x-0">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                              <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+                              <div
+                                className="absolute inset-0 top-1/2 bg-white shadow"
+                                aria-hidden="true"
+                              />
 
                               <div className="relative bg-white">
                                 <div className="max-w-7xl mx-auto px-8">
-                                  <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
-                                    <div className="grid grid-cols-3 gap-y-10 gap-x-8 text-sm text-gray-500">
-                                      {category.sections.map((column, columnIdx) => (
-                                        <div key={columnIdx} className="space-y-10">
-                                          {column.map((section) => (
-                                            <div key={section.name}>
-                                              <p
-                                                id={`${category.id}-${section.id}-heading`}
-                                                className="font-medium text-gray-900"
-                                              >
-                                                {section.name}
-                                              </p>
-                                              <ul
-                                                role="list"
-                                                aria-labelledby={`${category.id}-${section.id}-heading`}
-                                                className="mt-4 space-y-4"
-                                              >
-                                                {section.items.map((item) => (
-                                                  <li key={item.name} className="flex">
-                                                    <a href={item.href} className="hover:text-gray-800">
-                                                      {item.name}
-                                                    </a>
-                                                  </li>
-                                                ))}
-                                              </ul>
-                                            </div>
-                                          ))}
-                                        </div>
-                                      ))}
-                                    </div>
+                                  <div className="grid grid-rows-6 gap-y-5 gap-x-4 py-16 text-sm text-bobblue">
+                                    {category.items.map((item) => (
+                                      <div key={item.name} className="">
+                                        <a
+                                          href={item.href}
+                                          className="hover:text-bobred"
+                                        >
+                                          {item.name}
+                                        </a>
+                                      </div>
+                                    ))}
                                   </div>
                                 </div>
                               </div>
@@ -253,7 +214,7 @@ export default function Navbar() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {products.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -268,28 +229,33 @@ export default function Navbar() {
               {/* Logo */}
               <Link href="/">
                 <a className="flex">
-                <span className="sr-only">Workflow</span>
-                <Image
-                  className="h-16 w-auto"
-                  src={logoPic}
-                  layout="fixed"
-                  height={100}
-                  width={50}
-                  alt=""
-                />
+                  <span className="sr-only">Workflow</span>
+                  <Image
+                    className="h-16 w-auto"
+                    src={logoPic}
+                    layout="fixed"
+                    height={100}
+                    width={50}
+                    alt=""
+                  />
                 </a>
               </Link>
 
               <div className="flex-1 flex items-center justify-end">
-
                 {/* Search */}
-                <a href="#" className="hidden ml-6 p-2 text-gray-400 hover:text-bobgray lg:block">
+                <a
+                  href="#"
+                  className="hidden ml-6 p-2 text-gray-400 hover:text-bobgray lg:block"
+                >
                   <span className="sr-only">Search</span>
                   <SearchIcon className="w-6 h-6" aria-hidden="true" />
                 </a>
 
                 {/* Account */}
-                <a href="#" className="p-2 text-gray-400 hover:text-bobgray lg:ml-4">
+                <a
+                  href="#"
+                  className="p-2 text-gray-400 hover:text-bobgray lg:ml-4"
+                >
                   <span className="sr-only">Account</span>
                   <UserIcon className="w-6 h-6" aria-hidden="true" />
                 </a>
@@ -301,7 +267,9 @@ export default function Navbar() {
                       className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-bobblue"
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                      0
+                    </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
@@ -311,6 +279,5 @@ export default function Navbar() {
         </nav>
       </header>
     </div>
-
-    )
-  }
+  );
+}

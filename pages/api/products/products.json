@@ -1,0 +1,382 @@
+{
+  "categories": [
+    {
+      "id": "products",
+      "name": "Termékek",
+      "items": [
+        {
+          "name": "Virslik",
+          "href": "/products/{slug}",
+          "price": "$140",
+          "images": [
+            {
+              "id": 1,
+              "name": "Angled view",
+              "src": "/image1/image00001.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 2,
+              "name": "Angled view",
+              "src": "/image1/image00002.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 3,
+              "name": "Angled view",
+              "src": "/image1/image00003.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            }
+          ],
+          "sizes": [
+            { "name": "XXS", "inStock": true },
+            { "name": "XS", "inStock": true },
+            { "name": "S", "inStock": true },
+            { "name": "M", "inStock": true },
+            { "name": "L", "inStock": true },
+            { "name": "XL", "inStock": false }
+          ],
+          "description": "The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>",
+          "details": [
+            {
+              "name": "Features",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            },
+            {
+              "name": "ASdasd",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Babok",
+          "href": "/products/{slug}",
+          "price": "$180",
+          "images": [
+            {
+              "id": 4,
+              "name": "Angled view",
+              "src": "/image1/image00004.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 5,
+              "name": "Angled view",
+              "src": "/image1/image00005.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 6,
+              "name": "Angled view",
+              "src": "/image1/image00006.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            }
+          ],
+          "sizes": [
+            { "name": "XXS", "inStock": true },
+            { "name": "XS", "2": true },
+            { "name": "S", "inStock": true },
+            { "name": "M", "inStock": true },
+            { "name": "L", "inStock": true },
+            { "name": "XL", "inStock": false }
+          ],
+          "description": "Suck my ass between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>",
+          "details": [
+            {
+              "name": "Features",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            },
+            {
+              "name": "ASdasd",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            }
+          ]
+        },
+
+        {
+          "name": "Szószok",
+          "href": "/products/{slug}",
+          "price": "$10",
+
+          "images": [
+            {
+              "id": 7,
+              "name": "Angled view",
+              "src": "/image1/image00007.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 8,
+              "name": "Angled view",
+              "src": "/image1/image00008.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 9,
+              "name": "Angled view",
+              "src": "/image1/image00009.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            }
+          ],
+          "sizes": [
+            { "name": "XXS", "inStock": true },
+            { "name": "XS", "inStock": true },
+            { "name": "S", "inStock": true },
+            { "name": "M", "inStock": true },
+            { "name": "L", "inStock": false },
+            { "name": "XL", "inStock": true }
+          ],
+          "description": "Asshole is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>",
+          "details": [
+            {
+              "name": "Features",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            },
+            {
+              "name": "ASdasd",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            }
+          ]
+        },
+
+        {
+          "name": "Tojások",
+          "href": "/products/{slug}",
+          "price": "$16000",
+
+          "images": [
+            {
+              "id": 10,
+              "name": "Angled view",
+              "src": "/image1/image000010.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 11,
+              "name": "Angled view",
+              "src": "/image1/image000011.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 12,
+              "name": "Angled view",
+              "src": "/image1/image000012.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            }
+          ],
+          "sizes": [
+            { "name": "XXS", "inStock": false },
+            { "name": "XS", "inStock": true },
+            { "name": "S", "inStock": false },
+            { "name": "M", "inStock": true },
+            { "name": "L", "inStock": true },
+            { "name": "XL", "inStock": false }
+          ],
+          "description": "Fuck off and put a midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>",
+          "details": [
+            {
+              "name": "Features",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            },
+            {
+              "name": "ASdasd",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sonkák",
+          "href": "/products/{slug}",
+          "price": "$3000",
+          "images": [
+            {
+              "id": 13,
+              "name": "Angled view",
+              "src": "/image2/image00001.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 14,
+              "name": "Angled view",
+              "src": "/image2/image00002.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 15,
+              "name": "Angled view",
+              "src": "/image2/image00003.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            }
+          ],
+          "sizes": [
+            { "name": "XXS", "inStock": true },
+            { "name": "XS", "inStock": true },
+            { "name": "S", "inStock": true },
+            { "name": "M", "inStock": true },
+            { "name": "L", "inStock": true },
+            { "name": "XL", "inStock": true }
+          ],
+          "description": "Dig a whole hole between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>",
+          "details": [
+            {
+              "name": "Features",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            },
+            {
+              "name": "ASdasd",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            }
+          ]
+        },
+
+        {
+          "name": "Töltelékek",
+          "href": "/products/{slug}",
+          "price": "$160",
+
+          "images": [
+            {
+              "id": 16,
+              "name": "Angled view",
+              "src": "/image2/image00004.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 17,
+              "name": "Angled view",
+              "src": "/image2/image00005.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            },
+            {
+              "id": 18,
+              "name": "Angled view",
+              "src": "/image2/image00006.jpeg",
+              "alt": "Angled front view with bag zipped and handles upright."
+            }
+          ],
+          "sizes": [
+            { "name": "XXS", "inStock": true },
+            { "name": "XS", "inStock": true },
+            { "name": "S", "inStock": true },
+            { "name": "M", "inStock": true },
+            { "name": "L", "inStock": true },
+            { "name": "XL", "inStock": false }
+          ],
+          "description": "The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.</p>",
+          "details": [
+            {
+              "name": "Features",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            },
+            {
+              "name": "ASdasd",
+              "items": [
+                "Multiple strap configurations",
+                "Spacious interior with top zip",
+                "Leather handle and tabs",
+                "Interior dividers",
+                "Stainless strap loops",
+                "Double stitched construction",
+                "Water-resistant"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pages": [
+    { "name": "Rólunk", "href": "/products" },
+    { "name": "Képek", "href": "#" },
+    { "name": "Blog", "href": "#" },
+    { "name": "Kapcsolat", "href": "#" }
+  ]
+}
