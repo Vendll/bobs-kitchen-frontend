@@ -377,6 +377,6 @@
     { "name": "Rólunk", "href": "/products" },
     { "name": "Képek", "href": "#" },
     { "name": "Blog", "href": "#" },
-    { "name": "Kapcsolat", "href": "#" }
+    { "name": "Kapcsolat", "href": "/kontakt" }
   ]
 }

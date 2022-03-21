@@ -66,8 +66,6 @@ export default function ProductDetail(props) {
     product.data.attributes.Options[0]
   );
 
-  console.log(product);
-
   if (!product) {
     return <h1>Loading...</h1>;
   }

@@ -5,18 +5,18 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
-        bobred:{
-          DEFAULT:"#C51D23",
+      colors: {
+        bobred: {
+          DEFAULT: "#C51D23",
         },
-        bobblue:{
-          DEFAULT:"#1B306C",
+        bobblue: {
+          DEFAULT: "#1B306C",
         },
-        bobgray:{
-          DEFAULT:"#231F20",
+        bobgray: {
+          DEFAULT: "#231F20",
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

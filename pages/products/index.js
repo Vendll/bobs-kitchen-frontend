@@ -17,7 +17,6 @@ export async function getStaticProps() {
 
 export default function Products(props) {
   const { product } = props;
-  console.log(product);
 
   return (
     <Layout>
@@ -53,7 +52,7 @@ export default function Products(props) {
                     <p>{item.attributes.Options[0].price} Ft</p>
                   </div>
                   <p className="mt-1 text-sm italic text-gray-500">
-                    {item.description}
+                    {item.attributes.slug}
                   </p>
                 </a>
               </Link>
