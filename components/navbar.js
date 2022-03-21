@@ -167,12 +167,12 @@ export default function Navbar() {
       </Transition.Root>
 
       {/* desktop menu */}
-      <header className="relative bg-white">
+      <header className="relative bg-white border-b border-gray-200 ">
         <nav
           aria-label="Top"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="border-b border-gray-200">
+          <div className="">
             <div className="h-24 flex items-center justify-between">
               <div className="flex-1 flex items-center lg:hidden">
                 <button
@@ -226,7 +226,7 @@ export default function Navbar() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute top-full z-20 inset-x-0">
+                            <Popover.Panel className="absolute top-full border-t border-gray-200 z-20 inset-x-0">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -309,7 +309,7 @@ export default function Navbar() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute top-full z-20 inset-x-0">
+                            <Popover.Panel className="absolute top-full border-t border-gray-200 z-20 inset-x-0">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
 
                               <div className="relative bg-white">
