@@ -4,18 +4,17 @@ import Image from "next/image";
 const MyImage = ({ image, style, fit, iwidth, iheight, layoutOpt }) => {
   const { url, alternativeText } = image;
 
-  const loader = () => {
+  /*   const loader = (src, width) => {
     return getStrapiMedia(image);
-  };
+  }; */
 
   return (
     <Image
-      loader={loader}
       layout={layoutOpt}
       width={iwidth}
       height={iheight}
       objectFit={fit}
-      src={url}
+      src={getStrapiMedia(url)}
       alt={alternativeText || ""}
       className={style}
     />

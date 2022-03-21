@@ -6,7 +6,7 @@ const nextConfig = {
 module.exports = {
   images: {
     loader: "default",
-    domains: ["https://bobskitchenbackend-ojs88.ondigitalocean.app"],
+    domains: ["bobskitchenbackend-ojs88.ondigitalocean.app"],
   },
   nextConfig,
 };
