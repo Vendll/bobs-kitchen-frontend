@@ -184,13 +184,10 @@ export default function Navbar() {
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <a
-                  href="#"
-                  className="ml-2 p-2 text-gray-400 hover:text-gray-500"
-                >
+                <button className="ml-2 p-2 text-gray-400 hover:text-gray-500">
                   <span className="sr-only">Search</span>
                   <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                </a>
+                </button>
               </div>
 
               {/* Flyout menus */}
@@ -288,13 +285,53 @@ export default function Navbar() {
 
               <div className="flex-1 flex items-center justify-end">
                 {/* Search */}
-                <a
-                  href="#"
-                  className="hidden ml-6 p-2 text-gray-400 hover:text-bobgray lg:block"
-                >
-                  <span className="sr-only">Search</span>
-                  <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                </a>
+                <Popover.Group className="hidden lg:flex ">
+                  <div className="h-full flex space-x-8">
+                    <Popover key="searchbar" className="flex">
+                      {({ open }) => (
+                        <>
+                          <div className="relative flex">
+                            <Popover.Button className="hidden ml-6 p-2 text-gray-400 hover:text-bobgray lg:block">
+                              <span className="sr-only">Search</span>
+                              <SearchIcon
+                                className="w-6 h-6"
+                                aria-hidden="true"
+                              />
+                            </Popover.Button>
+                          </div>
+
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Popover.Panel className="absolute top-full z-20 inset-x-0">
+                              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+
+                              <div className="relative bg-white">
+                                <div className=" mx-auto px-8">
+                                  <div className="px-4 py-4 text-sm text-bobblue">
+                                    <input
+                                      type="text"
+                                      name="search"
+                                      id="search"
+                                      className="py-3 px-4 block w-full shadow-sm focus:ring-bobred border-bobred focus:border-bobred border-gray-300 rounded-md"
+                                      placeholder="Search here"
+                                    ></input>
+                                  </div>
+                                </div>
+                              </div>
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
+                  </div>
+                </Popover.Group>
 
                 {/* Account */}
                 <a
