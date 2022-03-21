@@ -343,17 +343,74 @@ export default function Navbar() {
                 </a>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 p-2 flex items-center">
-                    <ShoppingBagIcon
-                      className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-bobblue"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                <div className="lg:ml-4">
+                  <Popover className=" flow-root text-sm lg:relative ">
+                    <Popover.Button className="group -m-2 p-2 flex items-center">
+                      <ShoppingBagIcon
+                        className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-bobgray"
+                        aria-hidden="true"
+                      />
+                      <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-bobgray">
+                        0
+                      </span>
+                      <span className="sr-only">items in cart, view bag</span>
+                    </Popover.Button>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="transition ease-in duration-150"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <Popover.Panel className="absolute top-24 inset-x-0 pb-6 bg-gray-50 shadow-lg sm:px-2 md:top-full md:left-auto md:right-0 lg:mt-3 md:-mr-1.5 md:w-80 md:rounded-lg">
+                        <h2 className="sr-only">Shopping Cart</h2>
+
+                        <form className="max-w-2xl mx-auto px-4">
+                          <div className="flex justify-center items-center text-gray-400 text-base py-10">
+                            <h1>Nincs termék</h1>
+                          </div>
+                          {/*                           <ul role="list" className="divide-y divide-gray-200">
+                            {products.map((product) => (
+                              <li
+                                key={product.id}
+                                className="py-6 flex items-center"
+                              >
+                                <img
+                                  src={product.imageSrc}
+                                  alt={product.imageAlt}
+                                  className="flex-none w-16 h-16 rounded-md border border-gray-200"
+                                />
+                                <div className="ml-4 flex-auto">
+                                  <h3 className="font-medium text-gray-900">
+                                    <a href={product.href}>{product.name}</a>
+                                  </h3>
+                                  <p className="text-gray-500">
+                                    {product.color}
+                                  </p>
+                                </div>
+                              </li>
+                            ))}
+                          </ul> */}
+                          <button
+                            type="submit"
+                            className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                          >
+                            Checkout
+                          </button>
+                          <p className="mt-6 text-center">
+                            <a
+                              href="#"
+                              className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                            >
+                              View Shopping Bag
+                            </a>
+                          </p>
+                        </form>
+                      </Popover.Panel>
+                    </Transition>
+                  </Popover>
                 </div>
               </div>
             </div>
