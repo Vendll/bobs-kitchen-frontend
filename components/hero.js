@@ -57,8 +57,6 @@ export default function Hero() {
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src={heroPic}
           layout="fill"
-          width="100%"
-          height="100%"
           objectFit="cover"
           alt="English Breakfast"
         />
