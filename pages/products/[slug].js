@@ -62,7 +62,7 @@ function classNames(...classes) {
 
 export default function ProductDetail(props) {
   const { product } = props;
-  const [selectedSize, setSelectedSize] = useState(
+  const [selectedProduct, setselectedProduct] = useState(
     product.data.attributes.Options[0]
   );
 
@@ -134,7 +134,9 @@ export default function ProductDetail(props) {
 
               <div className="mt-3">
                 <h2 className="sr-only">Product information</h2>
-                <p className="text-3xl text-gray-900">{selectedSize.price}</p>
+                <p className="text-3xl text-gray-900">
+                  {selectedProduct.price}
+                </p>
               </div>
 
               <div className="mt-6">
@@ -152,8 +154,8 @@ export default function ProductDetail(props) {
                   </div>
 
                   <RadioGroup
-                    value={selectedSize}
-                    onChange={setSelectedSize}
+                    value={selectedProduct}
+                    onChange={setselectedProduct}
                     className="mt-2"
                   >
                     <RadioGroup.Label className="sr-only">

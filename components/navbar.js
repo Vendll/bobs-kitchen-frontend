@@ -201,9 +201,9 @@ export default function Navbar() {
                             <Popover.Button
                               className={classNames(
                                 open
-                                  ? "text-bobred"
+                                  ? "text-bobred focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                                   : "text-bobgray hover:text-bobblue",
-                                "relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium hover:border-b-2 hover:border-bobred"
+                                "relative z-10 flex items-center justify-center transition-colors ease-out duration-200 text-sm font-medium hover:border-b-2 hover:border-bobred focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0"
                               )}
                             >
                               {category.name}
@@ -291,7 +291,7 @@ export default function Navbar() {
                       {({ open }) => (
                         <>
                           <div className="relative flex">
-                            <Popover.Button className="hidden ml-6 p-2 text-gray-400 hover:text-bobgray lg:block">
+                            <Popover.Button className="hidden ml-6 p-2 text-gray-400 focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0 hover:text-bobgray lg:block">
                               <span className="sr-only">Search</span>
                               <SearchIcon
                                 className="w-6 h-6"
@@ -345,7 +345,7 @@ export default function Navbar() {
                 {/* Cart */}
                 <div className="lg:ml-4">
                   <Popover className=" flow-root text-sm lg:relative ">
-                    <Popover.Button className="group -m-2 p-2 flex items-center">
+                    <Popover.Button className="group -m-2 p-2 flex items-center focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0">
                       <ShoppingBagIcon
                         className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-bobgray"
                         aria-hidden="true"
