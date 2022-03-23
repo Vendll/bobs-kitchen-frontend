@@ -82,13 +82,13 @@ export default function ProductDetail(props) {
                   {product.data.attributes.Gallery.data.map((image) => (
                     <Tab
                       key={image.id}
-                      className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-0 focus:ring-0"
+                      className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-0"
                     >
                       {({ selected }) => (
                         <>
                           <span className="absolute inset-0 outline-none rounded-md overflow-hidden">
                             <MyImage
-                              image={image.attributes}
+                              image={image.attributes.formats.thumbnail}
                               layoutOpt="responsive"
                               iwidth="100%"
                               iheight="100%"
@@ -114,7 +114,7 @@ export default function ProductDetail(props) {
                 {product.data.attributes.Gallery.data.map((image) => (
                   <Tab.Panel key={image.id}>
                     <MyImage
-                      image={image.attributes}
+                      image={image.attributes.formats.medium}
                       layoutOpt="responsive"
                       iwidth="60%"
                       iheight="70%"

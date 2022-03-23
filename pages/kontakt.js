@@ -1,7 +1,7 @@
 import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
 import Layout from "../components/layout";
 import Image from "next/image";
-import contactPic from "../public/image1/image00008.jpeg";
+import contactPic from "../public/image1/image00006.jpeg";
 
 export default function Example() {
   return (

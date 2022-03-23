@@ -273,7 +273,6 @@ export default function Navbar() {
                 <a className="flex">
                   <span className="sr-only">Workflow</span>
                   <Image
-                    className="h-16 w-auto"
                     src={logoPic}
                     layout="fixed"
                     height={100}
@@ -291,7 +290,12 @@ export default function Navbar() {
                       {({ open }) => (
                         <>
                           <div className="relative flex">
-                            <Popover.Button className="hidden ml-6 p-2 text-gray-400 focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0 hover:text-bobgray lg:block">
+                            <Popover.Button
+                              className={classNames(
+                                open ? "text-bobred " : "text-gray-400",
+                                "hidden ml-6 p-2 focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0 hover:text-bobgray lg:block"
+                              )}
+                            >
                               <span className="sr-only">Search</span>
                               <SearchIcon
                                 className="w-6 h-6"
