@@ -141,7 +141,6 @@ export default function ProductDetail(props) {
 
               <div className="mt-6">
                 <h3 className="sr-only">Description</h3>
-
                 <div className="text-base text-gray-700 space-y-6" />
                 {product.data.attributes.Description}
               </div>
