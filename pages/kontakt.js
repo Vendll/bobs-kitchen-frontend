@@ -12,6 +12,7 @@ export default function Example() {
           layout="fill"
           objectFit="cover"
           className="w-full h-full object-center object-cover group-hover:opacity-75"
+          alt="Contact"
         />
       </div>
       <div className="relative bg-gray-100 mt-24">

@@ -14,12 +14,12 @@ import contactPic6 from "../public/image1/image00002.jpeg";
 import contactPic7 from "../public/image1/image00003.jpeg";
 
 let productsImages = [
-  { photo: contactPic },
-  { photo: contactPic2 },
-  { photo: contactPic3 },
-  { photo: contactPic4 },
+  { photo: contactPic, key: 1 },
+  { photo: contactPic2, key: 2 },
+  { photo: contactPic3, key: 3 },
+  { photo: contactPic4, key: 4 },
 ];
-export default function MyModal({ productsImages }) {
+export default function MyModal() {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -46,7 +46,7 @@ export default function MyModal({ productsImages }) {
   return (
     <Layout>
       <>
-        <div className="mx-36 h-[50vh] mt-36">
+        {/*         <div className="mx-36 h-[50vh] mt-36">
           <div className="flex-col sm:grid mx-3 sm:mx-0 sm:grid-cols-2 md:grid-cols-3  gap-4 my-24">
             <div className="KEPMODAL border-2 border-bobred ">
               <div className="border-2 border-bobblue inset-0 flex items-center justify-center">
@@ -55,7 +55,12 @@ export default function MyModal({ productsImages }) {
                   className="p-4 w-full h-96 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
                   <div className="block relative h-72 border-2 border-bobred">
-                    <Image src={contactPic} layout="fill" objectFit="contain" />
+                    <Image
+                      src={contactPic}
+                      layout="fill"
+                      objectFit="contain"
+                      key="1342"
+                    />
                   </div>
                   <div className="text-center mt-2">
                     Niggaaaaaaaaasaaasasasasasasasas
@@ -86,18 +91,9 @@ export default function MyModal({ productsImages }) {
             toggler={lightboxController.toggler}
             sources={productsImages}
             slide={lightboxController.slide}
-            captions={[
-              <>
-                <h2>First image title</h2>
-                <div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </div>
-              </>,
-              <h2>Second image title</h2>,
-              "Third image caption",
-            ]}
           />
         </div>
+ */}{" "}
       </>
     </Layout>
   );

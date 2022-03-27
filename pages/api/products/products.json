@@ -375,8 +375,8 @@
   ],
   "pages": [
     { "name": "Rólunk", "href": "/products" },
-    { "name": "Képek", "href": "#" },
-    { "name": "Blog", "href": "#" },
+    { "name": "Képek", "href": "/gallery" },
+    { "name": "Blog", "href": "/blog" },
     { "name": "Kapcsolat", "href": "/kontakt" }
   ]
 }
