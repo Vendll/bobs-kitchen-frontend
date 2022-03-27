@@ -4,7 +4,7 @@ import contactPic from "../public/image1/image00006.jpeg";
 import KontaktForm from "../components/KontaktForm";
 import KontaktBody from "../components/KontaktBody";
 
-export default function Example() {
+export default function Kontakt() {
   return (
     <Layout>
       <div className="h-96">

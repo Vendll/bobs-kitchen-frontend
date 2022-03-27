@@ -98,7 +98,7 @@ const HighlightedFood = () => {
           ))}
         </div>
         <div className="w-full mt-16 flex items-center justify-center ">
-          <Link href="/products">
+          <Link href="/products" passHref>
             <button className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-bobred opacity-100 hover:opacity-80 md:py-4 md:text-lg md:px-10">
               Tekintse meg összes termékünket!
             </button>

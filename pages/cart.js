@@ -26,7 +26,7 @@ export default function ShoppingCart() {
       price: "$32.00",
       color: "Black",
       inStock: false,
-      leadTime: "3–4 weeks",
+      leadTime: "3-4 weeks",
       size: "Large",
       imageSrc:
         "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg",
@@ -47,7 +47,7 @@ export default function ShoppingCart() {
 
   return (
     <Layout>
-      <main className="max-w-2xl mx-auto mt-24 pt-16 pb-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-2xl mx-auto mt-24 pt-16 pb-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           Shopping Cart
         </h1>
@@ -58,7 +58,7 @@ export default function ShoppingCart() {
           {/* Order summary */}
           <OrderSummary />
         </form>
-      </main>
+      </div>
     </Layout>
   );
 }

@@ -4,7 +4,7 @@ import axios from "axios";
 import ImageTabGroup from "../../components/ProductImageTabGroup";
 
 import { useState } from "react";
-import { Disclosure, RadioGroup, Tab } from "@headlessui/react";
+import { Disclosure, RadioGroup } from "@headlessui/react";
 import { MinusSmIcon, PlusSmIcon } from "@heroicons/react/outline";
 
 async function getData(pageSlug) {

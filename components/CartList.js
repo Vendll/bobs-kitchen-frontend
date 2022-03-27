@@ -12,7 +12,11 @@ const CartList = ({ products }) => {
         className="border-t border-b border-gray-200 divide-y divide-gray-200"
       >
         {products.map((product, productIdx) => (
-          <CartItem product={product} productIdx={productIdx} />
+          <CartItem
+            key={product.id}
+            product={product}
+            productIdx={productIdx}
+          />
         ))}
       </ul>
     </section>

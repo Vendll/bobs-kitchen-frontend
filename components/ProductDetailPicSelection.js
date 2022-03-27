@@ -1,6 +1,7 @@
 import MyImage from "./ProductDetailImage";
+import { Tab } from "@headlessui/react";
 
-const ImageSelector = ({image}) => {
+const ImageSelector = ({ image }) => {
   return (
     <Tab
       key={image.id}
