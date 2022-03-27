@@ -13,11 +13,12 @@
     "@heroicons/react": "^1.0.6",
     "axios": "^0.26.1",
     "fs": "^0.0.1-security",
-    "mui-fb-photo-grid": "^1.2.3",
+    "fslightbox-react": "./lib/package",
     "next": "12.1.0",
     "qs": "^6.10.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-spinners": "^0.11.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.0",
