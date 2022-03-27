@@ -1,7 +1,7 @@
 import Image from "next/image";
 import aboutPic from "../public/image1/image00003.jpeg";
 
-export default function ShortAbout() {
+const ShortAbout = () => {
   return (
     <div className="relative md:grid md:grid-cols-2 bg-white mt-24">
       <div className="relative md:col-span-1 md:w-[50vw]">
@@ -49,4 +49,6 @@ export default function ShortAbout() {
       </div>
     </div>
   );
-}
+};
+
+export default ShortAbout;

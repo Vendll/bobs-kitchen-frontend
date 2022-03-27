@@ -17,3 +17,7 @@ a {
 * {
   box-sizing: border-box;
 }
+.h-contactpic {
+  --footer: 232px;
+  height: calc(100vh - 8rem - var(--footer));
+}

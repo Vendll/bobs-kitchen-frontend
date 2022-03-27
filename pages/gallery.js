@@ -1,6 +1,6 @@
 import FsLightbox from "fslightbox-react";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";

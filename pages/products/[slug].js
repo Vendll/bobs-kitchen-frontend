@@ -1,6 +1,7 @@
-import Layout from "../../components/layout";
-import MyImage from "../../components/productDetailImage";
+import Layout from "../../components/Layout";
 import axios from "axios";
+
+import ImageTabGroup from "../../components/ProductImageTabGroup";
 
 import { useState } from "react";
 import { Disclosure, RadioGroup, Tab } from "@headlessui/react";
@@ -75,56 +76,7 @@ export default function ProductDetail(props) {
         <div className="max-w-2xl mx-auto pt-16 px-4 sm:pt-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
             {/* Image gallery */}
-            <Tab.Group as="div" className="flex flex-col-reverse">
-              {/* Image selector */}
-              <div className="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
-                <Tab.List className="grid grid-cols-4 gap-6">
-                  {product.data.attributes.Gallery.data.map((image) => (
-                    <Tab
-                      key={image.id}
-                      className="relative h-24 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-0"
-                    >
-                      {({ selected }) => (
-                        <>
-                          <span className="absolute inset-0 outline-none rounded-md overflow-hidden">
-                            <MyImage
-                              image={image.attributes.formats.thumbnail}
-                              layoutOpt="responsive"
-                              iwidth="100%"
-                              iheight="100%"
-                              fit="cover"
-                              style="w-full h-full object-center object-cover"
-                            />
-                          </span>
-                          <span
-                            className={classNames(
-                              selected ? "ring-bobred" : "ring-transparent",
-                              "absolute inset-0 rounded-md ring-2 ring-offset-2 pointer-events-none"
-                            )}
-                            aria-hidden="true"
-                          />
-                        </>
-                      )}
-                    </Tab>
-                  ))}
-                </Tab.List>
-              </div>
-
-              <Tab.Panels className="w-full aspect-w-1 aspect-h-1">
-                {product.data.attributes.Gallery.data.map((image) => (
-                  <Tab.Panel key={image.id}>
-                    <MyImage
-                      image={image.attributes.formats.medium}
-                      layoutOpt="responsive"
-                      iwidth="60%"
-                      iheight="70%"
-                      fit="cover"
-                      style="w-full h-full  sm:rounded-lg"
-                    />
-                  </Tab.Panel>
-                ))}
-              </Tab.Panels>
-            </Tab.Group>
+            <ImageTabGroup product={product} />
 
             {/* Product info */}
             <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">

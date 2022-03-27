@@ -61,7 +61,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="bg-white fixed top-0 z-30 w-full">
@@ -97,7 +97,7 @@ export default function Navbar() {
               <div className="px-4 pt-5 pb-2 flex">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400 focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -184,10 +184,61 @@ export default function Navbar() {
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <button className="ml-2 p-2 text-gray-400 hover:text-gray-500">
+                <Popover.Group className="flex lg:hidden">
+                  <Popover key="searchbar" className="flex">
+                    {({ open }) => (
+                      <>
+                        <div className="relative flex">
+                          <Popover.Button
+                            className={classNames(
+                              open ? "text-bobred " : "text-gray-400",
+                              "p-2 focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0 hover:text-bobgray lg:block"
+                            )}
+                          >
+                            <span className="sr-only">Search</span>
+                            <SearchIcon
+                              className="w-6 h-6"
+                              aria-hidden="true"
+                            />
+                          </Popover.Button>
+                        </div>
+
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-200"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="transition ease-in duration-150"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0"
+                        >
+                          <Popover.Panel className="absolute top-full border-t border-gray-200 z-20 inset-x-0">
+                            {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+
+                            <div className="relative bg-white">
+                              <div className=" mx-auto ">
+                                <div className="px-4 py-4 text-sm text-bobblue">
+                                  <input
+                                    type="text"
+                                    name="search"
+                                    id="search"
+                                    className="py-3 px-4 block w-full shadow-sm focus:ring-bobred border-bobred focus:border-bobred border-gray-300 rounded-md"
+                                    placeholder="Search here"
+                                  ></input>
+                                </div>
+                              </div>
+                            </div>
+                          </Popover.Panel>
+                        </Transition>
+                      </>
+                    )}
+                  </Popover>
+                </Popover.Group>
+
+                {/* <button className="ml-2 p-2 text-gray-400 hover:text-gray-500">
                   <span className="sr-only">Search</span>
                   <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                </button>
+                </button> */}
               </div>
 
               {/* Flyout menus */}
@@ -335,13 +386,12 @@ export default function Navbar() {
                 </Popover.Group>
 
                 {/* Account */}
-                <a
-                  href="#"
-                  className="p-2 text-gray-400 hover:text-bobgray lg:ml-4"
-                >
-                  <span className="sr-only">Account</span>
-                  <UserIcon className="w-6 h-6" aria-hidden="true" />
-                </a>
+                <Link href="/login">
+                  <a className="p-2 text-gray-400 hover:text-bobgray lg:ml-4">
+                    <span className="sr-only">Account</span>
+                    <UserIcon className="w-6 h-6" aria-hidden="true" />
+                  </a>
+                </Link>
 
                 {/* Cart */}
                 <div className="lg:ml-4">
@@ -365,7 +415,7 @@ export default function Navbar() {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Popover.Panel className="absolute top-24 inset-x-0 pb-6 bg-gray-50 shadow-lg sm:px-2 md:top-full md:left-auto md:right-0 lg:mt-3 md:-mr-1.5 md:w-80 md:rounded-lg">
+                      <Popover.Panel className="absolute top-24 inset-x-0 pb-6 bg-gray-50 shadow-lg sm:px-2 md:top-full md:left-auto md:right-0 lg:mt-3 md:-mr-1.5 md:w-80 md:rounded-lg md:ring-2 md:ring-opacity-10 md:ring-bobgray">
                         <h2 className="sr-only">Shopping Cart</h2>
 
                         <form className="max-w-2xl mx-auto px-4">
@@ -401,12 +451,11 @@ export default function Navbar() {
                             Checkout
                           </button>
                           <p className="mt-6 text-center">
-                            <a
-                              href="#"
-                              className="text-sm font-medium text-bobblue hover:text-bobred"
-                            >
-                              View Shopping Bag
-                            </a>
+                            <Link href="/cart">
+                              <a className="text-sm font-medium text-bobblue hover:text-bobred">
+                                View Shopping Bag
+                              </a>
+                            </Link>
                           </p>
                         </form>
                       </Popover.Panel>
@@ -420,4 +469,6 @@ export default function Navbar() {
       </header>
     </div>
   );
-}
+};
+
+export default Navbar;

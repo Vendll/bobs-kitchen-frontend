@@ -1,6 +1,6 @@
 import Image from "next/image";
 import heroPic from "../public/image1/image00005.jpeg";
-export default function Hero() {
+const Hero = () => {
   return (
     <div className="relative bg-white overflow-hidden pt-20">
       <div className="max-w-7xl mx-auto">
@@ -63,4 +63,6 @@ export default function Hero() {
       </div>
     </div>
   );
-}
+};
+
+export default Hero;
