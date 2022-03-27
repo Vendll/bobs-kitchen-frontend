@@ -1,5 +1,6 @@
 import Image from "next/image";
 import heroPic from "../public/image1/image00005.jpeg";
+
 const Hero = () => {
   return (
     <div className="relative bg-white overflow-hidden pt-20">

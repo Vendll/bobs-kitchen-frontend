@@ -8,7 +8,7 @@ import Image from "next/image";
 const CartItem = ({ product, productIdx }) => {
   return (
     <li key={product.id} className="flex py-6 sm:py-10">
-      <div className="flex-shrink-0 relative h-24 sm:h-48 rounded-md">
+      <div className="flex-shrink-0 relative w-24 h-24 sm:h-48 sm:w-48 rounded-md">
         <Image
           src={product.imageSrc}
           alt={product.imageAlt}

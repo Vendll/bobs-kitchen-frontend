@@ -386,7 +386,7 @@ const Navbar = () => {
                 </Popover.Group>
 
                 {/* Account */}
-                <Link href="/login">
+                <Link href="/signin">
                   <a className="p-2 text-gray-400 hover:text-bobgray lg:ml-4">
                     <span className="sr-only">Account</span>
                     <UserIcon className="w-6 h-6" aria-hidden="true" />

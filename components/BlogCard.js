@@ -33,10 +33,16 @@ const BlogCard = ({ post }) => {
           </Link>
         </div>
         <div className="mt-6 flex items-center">
-          <div className="flex-shrink-0 ">
+          <div className="flex-shrink-0 relative w-10 h-10">
             <Link href={post.author.href}>
-              <a className="relative h-10">
+              <a className="">
                 <span className="sr-only">{post.author.name}</span>
+                <Image
+                  src={post.author.imageUrl}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={post.author.name}
+                />
               </a>
             </Link>
           </div>

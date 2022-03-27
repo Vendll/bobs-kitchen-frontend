@@ -6,7 +6,7 @@ const nextConfig = {
 module.exports = {
   images: {
     loader: "default",
-    domains: ["bobskitchenbackend-ojs88.ondigitalocean.app"],
+    domains: ["bobskitchenbackend-ojs88.ondigitalocean.app", "tailwindui.com"],
   },
   nextConfig,
 };

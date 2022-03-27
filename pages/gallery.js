@@ -2,9 +2,7 @@ import FsLightbox from "fslightbox-react";
 
 import Layout from "../components/Layout";
 
-import Image from "next/image";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import contactPic from "../public/image2/image00005.jpeg";
 import contactPic2 from "../public/image1/image00006.jpeg";
 import contactPic3 from "../public/image1/image00007.jpeg";
@@ -41,8 +39,7 @@ export default function MyModal() {
       slide: number,
     });
   }
-  console.log(productsImages);
-  console.log(contactPic);
+
   return (
     <Layout>
       <>
@@ -92,8 +89,7 @@ export default function MyModal() {
             sources={productsImages}
             slide={lightboxController.slide}
           />
-        </div>
- */}{" "}
+        </div> */}
       </>
     </Layout>
   );

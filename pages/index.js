@@ -1,11 +1,9 @@
 import Head from "next/head";
-import Divider from "../components/divider";
-import Hero from "../components/hero";
-import ShortAbout from "../components/shortAbout";
-import HighlightedFood from "../components/highlightedFoods";
-import Layout from "../components/layout";
-
-import { useState } from "react";
+import Divider from "../components/Divider";
+import Hero from "../components/Hero";
+import ShortAbout from "../components/ShortAbout";
+import HighlightedFood from "../components/HighlightedFoods";
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (

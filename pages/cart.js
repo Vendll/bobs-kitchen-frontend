@@ -2,9 +2,6 @@ import Layout from "../components/Layout";
 import CartList from "../components/CartList";
 import OrderSummary from "../components/OrderSummery";
 
-import { Fragment, useState } from "react";
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
-
 export default function ShoppingCart() {
   const products = [
     {
