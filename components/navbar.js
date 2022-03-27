@@ -238,12 +238,11 @@ export default function Navbar() {
                                   <div className="grid grid-rows-6 gap-y-5 gap-x-4 py-16 text-sm text-bobblue">
                                     {category.items.map((item) => (
                                       <div key={item.name} className="">
-                                        <a
-                                          href={item.href}
-                                          className="hover:text-bobred"
-                                        >
-                                          {item.name}
-                                        </a>
+                                        <Link href={item.href}>
+                                          <a className="hover:text-bobred">
+                                            {item.name}
+                                          </a>
+                                        </Link>
                                       </div>
                                     ))}
                                   </div>
@@ -257,13 +256,11 @@ export default function Navbar() {
                   ))}
 
                   {products.pages.map((page) => (
-                    <a
-                      key={page.name}
-                      href={page.href}
-                      className="flex items-center text-sm font-medium text-bobgray hover:text-bobblue hover:border-b-2 hover:border-bobred"
-                    >
-                      {page.name}
-                    </a>
+                    <Link key={page.name} href={page.href}>
+                      <a className="flex items-center text-sm font-medium text-bobgray hover:text-bobblue hover:border-b-2 hover:border-bobred">
+                        {page.name}
+                      </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
