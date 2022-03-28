@@ -13,10 +13,10 @@ import contactPic6 from "../public/image1/image00002.jpeg";
 import contactPic7 from "../public/image1/image00003.jpeg";
 
 let productImages = [
-  "image2/image00005.jpeg",
-  "image1/image00006.jpeg",
-  "image1/image00007.jpeg",
-  "image1/image00008.jpeg",
+  "/image2/image00005.jpeg",
+  "/image1/image00006.jpeg",
+  "/image1/image00007.jpeg",
+  "/image1/image00008.jpeg",
 
   /* { contactPic },
   { contactPic2 },
@@ -38,24 +38,28 @@ export default function MyModal() {
   }
   return (
     <Layout>
-      <div className="px-4 md:px-32 pt-32 pb-8 bg-gray-300">
-        <div className="flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          {productImages.map((item, index) => (
-            <div className="KEPMODAL border-2 border-bobred bg-gray-200 rounded-md my-4 sm:my-0">
-              <div className="border-2 border-bobblue rounded-md inset-0 flex items-center justify-center">
+      <div className="px-4 md:px-32 pt-32">
+        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+          {productImages.map((image, index) => (
+            <div
+              key={index}
+              className="flex flex-col rounded-lg shadow-lg hover:shadow-xl overflow-hidden"
+            >
+              <div className="inset-0 flex items-center justify-center">
                 <div
                   onClick={() => openLightboxOnSlide(index + 1)}
-                  className="px-4 pt-4 w-full h-[22rem] hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                  className=" w-full hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                 >
-                  <div className="block relative h-72 border-2 border-bobred">
+                  <div className="relative h-64 flex-shrink-0">
                     <Image
-                      src={contactPic}
+                      src={image}
                       layout="fill"
-                      objectFit="contain"
-                      key="1342"
+                      objectFit="cover"
+                      key={image.index}
+                      alt="alt text"
                     />
                   </div>
-                  <div className="text-center mt-2 break-all">
+                  <div className="text-center m-2 break-all">
                     Niggaaaaaaaaasaaasasasasasasasas
                   </div>
                 </div>
