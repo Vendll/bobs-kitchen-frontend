@@ -1,8 +1,6 @@
 import FsLightbox from "fslightbox-react";
 import Image from "next/image";
 
-import Layout from "../components/Layout";
-
 import { useState } from "react";
 import contactPic from "../public/image2/image00005.jpeg";
 import contactPic2 from "../public/image1/image00006.jpeg";
@@ -37,7 +35,7 @@ export default function MyModal() {
     });
   }
   return (
-    <Layout>
+    <>
       <div className="px-4 md:px-32 pt-32">
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:gap-x-8">
           {productImages.map((image, index) => (
@@ -89,6 +87,6 @@ export default function MyModal() {
         sources={productImages}
         slide={lightboxController.slide}
       />
-    </Layout>
+    </>
   );
 }

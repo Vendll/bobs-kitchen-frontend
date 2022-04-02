@@ -1,4 +1,3 @@
-import Layout from "../components/Layout";
 import Image from "next/image";
 import contactPic from "../public/image1/image00006.jpeg";
 import KontaktForm from "../components/KontaktForm";
@@ -6,7 +5,7 @@ import KontaktBody from "../components/KontaktBody";
 
 export default function Kontakt() {
   return (
-    <Layout>
+    <>
       <div className="h-96">
         <Image
           src={contactPic}
@@ -23,6 +22,6 @@ export default function Kontakt() {
         </div>
         <div className="h-32 bg-white"></div>
       </div>
-    </Layout>
+    </>
   );
 }

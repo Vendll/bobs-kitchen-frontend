@@ -1,4 +1,3 @@
-import Layout from "../../components/Layout";
 import BlogList from "../../components/BlogList";
 
 export default function Blog() {
@@ -101,9 +100,5 @@ export default function Blog() {
     },
   ];
 
-  return (
-    <Layout>
-      <BlogList posts={posts} />
-    </Layout>
-  );
+  return <BlogList posts={posts} />;
 }
