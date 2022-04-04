@@ -2,7 +2,7 @@ import Image from "next/image";
 import products from "../pages/api/products/products.json";
 import Link from "next/link";
 import { Fragment, useState } from "react";
-import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import { Dialog, Popover, Transition } from "@headlessui/react";
 import {
   MenuIcon,
   SearchIcon,
@@ -106,59 +106,66 @@ const Navbar = () => {
               </div>
 
               {/* Links */}
-              <Tab.Group as="div" className="mt-2">
-                <div className="border-b border-gray-200">
-                  <Tab.List className="-mb-px flex px-4 space-x-8">
-                    {products.categories.map((category) => (
-                      <Tab
-                        key={category.name}
-                        className={({ selected }) =>
-                          classNames(
-                            selected
-                              ? "text-bobred border-bobred"
-                              : "text-bobgray border-transparent",
-                            "flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
-                          )
-                        }
-                      >
-                        {category.name}
-                      </Tab>
-                    ))}
-                  </Tab.List>
-                </div>
-                <Tab.Panels as={Fragment}>
+              <Popover.Group as="div" className="mt-2">
+                <div className="">
                   {products.categories.map((category) => (
-                    <Tab.Panel
-                      key={category.name}
-                      className="pt-10 pb-8 px-4 space-y-10"
-                    >
-                      {category.items.map((item) => (
-                        <div key={item.name} className="space-y-10">
-                          <li key={item.name} className="flow-root">
-                            <Link
-                              href={item.href}
-                              className="-m-2 p-2 block text-gray-500"
+                    <Popover key={category.name} className="flex-col py-6 px-4">
+                      {({ open }) => (
+                        <Fragment as="div">
+                          <div className="relative flex">
+                            <Popover.Button
+                              key={category.name}
+                              className={({ selected }) =>
+                                classNames(
+                                  selected
+                                    ? "text-bobred border-bobred"
+                                    : "text-bobgray border-transparent",
+                                  "whitespace-nowrap text-base font-medium focus:outline-none focus-visible:ring-0 focus-visible:ring-white focus-visible:ring-opacity-0"
+                                )
+                              }
                             >
-                              {item.name}
-                            </Link>
-                          </li>
-                        </div>
-                      ))}
-                    </Tab.Panel>
+                              {category.name} {open ? "^" : "v"}
+                            </Popover.Button>
+                          </div>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-in duration-150"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="transition ease-out duration-150"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Popover.Panel>
+                              {products.categories.map((category) => (
+                                <div className="ml-7 mt-5 space-y-3">
+                                  {category.items.map((item) => (
+                                    <div key={item.name}>
+                                      <Link href={item.href}>
+                                        <a className=" block text-gray-500">
+                                          {item.name}
+                                        </a>
+                                      </Link>
+                                    </div>
+                                  ))}
+                                </div>
+                              ))}
+                            </Popover.Panel>
+                          </Transition>
+                        </Fragment>
+                      )}
+                    </Popover>
                   ))}
-                </Tab.Panels>
-              </Tab.Group>
+                </div>
+              </Popover.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              <div className=" px-4 space-y-6">
                 {products.pages.map((page) => (
-                  <div key={page.name} className="flow-root">
-                    <a
-                      href={page.href}
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
+                  <Link key={page.name} href={page.href}>
+                    <a className="flex-col font-medium flex lg:flex-row lg:items-center lg:text-sm text-bobgray hover:text-bobblue lg:hover:border-b-2 lg:hover:border-bobred">
                       {page.name}
                     </a>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
